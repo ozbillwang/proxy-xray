@@ -4,6 +4,12 @@
 
 ![docker-build](https://github.com/samuelhbne/proxy-xray/workflows/docker-buildx-latest/badge.svg)
 
+NOTES: Please set [server-xray](https://github.com/samuelhbne/server-xray) ready first
+
+## High level design
+
+
+
 ## How to start proxy-xray container
 
 The following command will:
@@ -16,15 +22,14 @@ The following command will:
 ```shell
 $ docker run --name proxy-xray -p 2080:1080 -p 2080:1080/udp -p 8223:8123 -p 65353:53/udp \
 -d samuelhbne/proxy-xray --ltx myid@mydomain.duckdns.org:443 --cn-direct --dns-local-cn
-...
 ```
 
 ### NOTE 1
 
-- Please replace "mydomain.duckdns.org" with the Xray server domain you want to connect
-- Please replace 2080 (-p 2080:1080, -p 2080:1080/udp) with the port number you set for SOCKS5 proxy TCP listerning.
-- Please replace 8223 (-p 8223:8123) with the port number you set for HTTP proxy TCP listerning.
-- Please replace 65353 (-p 65353:53/udp) with the port number you set for DNS UDP listerning.
+- Please replace "mydomain.duckdns.org" with the [Xray server domain](xxx) you want to connect
+- (optional) Please replace 2080 (-p 2080:1080, -p 2080:1080/udp) with the port number you set for SOCKS5 proxy TCP listerning.
+- (optional) Please replace 8223 (-p 8223:8123) with the port number you set for HTTP proxy TCP listerning.
+- (optional) Please replace 65353 (-p 65353:53/udp) with the port number you set for DNS UDP listerning.
 - Please replace "myid" with the id string or standard UUID (like "MyMobile or "b77af52c-2a93-4b3e-8538-f9f91114ba00") you set for Xray server access.
 
 ### NOTE 2
